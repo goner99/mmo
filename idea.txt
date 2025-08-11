@@ -1,0 +1,183 @@
+MMORPG
+- inspirado en hytale
+- mundo abierto
+- combate -> como rakion mejroado
+- creatures -> como hadas de TLON
+- lifeskills -> como albion
+- diseño -> animado/arcane
+- crossplatfomr
+
+Historia
+ : Gaia diosa del mundo, defensora de la paz, guia a los aventureros, siempre en conflicto con los ide
+   ideales de astaroth, un demonia de los inicios de los tiempos :
+-> No historia, no misiones de historia, no dialogos
+-> Enfrentamiento de gaia y astaroth en tiempo real, con peleas masivas (rf. fornite)
+
+Progresion
+-> Max lv 99
+-> Por zonas
+-> 
+
+Zonas
+ : un mapa entero divido en 5 biomas cada uno con su propias estructuras :
+-> Pradera(Reino medieval, ciudad, debotos a gaia)
+-> Sombras(Ciudades abandonados, ruinas, teticro)
+-> Naturaleza(Reino natural, ciudad, descendientes de gaia)
+-> Desierto(Reino desertico, poca poblacion)
+-> Helado(Reino hielo, tetrico)
+-> Demoniaco(Reino )
+
+Portales
+ : portales que aparecen por todo el mapa :
+-> Por nivel
+-> Limpiada por los aventureros y desaparecen
+ 
+Contenido
+ : Eventos :
+-> Diarios
+	- Mazmorras grupales para exp
+	- Arena pvp
+-> Semanales
+	- Boss elemental
+-> Seasson
+	- Misiones para conseguir criatura de season
+	- Misiones para conseguir puntos para skins
+	- Duracion Trimestral
+-> Ilimitado
+	- Torre de boss(Divido por pisos) Drop. exp para creiaturas
+ : Historia :
+ -> Misiones definidas para pasar de zona
+	- Matar una cantidad de enemigos
+	- Matar todos los boses de la zona, 10
+	- Obtener Coonocimiento de la zona(Enemigos, Fauna, Flora)
+
+Combate
+ : Accion combat, combinacion de teclas:
+-> Atq basicos 3
+-> Atq especial 2
+-> Atq imune
+-> Atq de salto
+-> Atq de avance
+-> Cubrirse
+-> Dash
+-> Atq de criatura
+
+Movimiento
+ : Movimiento fixed enemy y normal :
+
+
+Mazmorras
+-> Instansiadas
+-> Mundo
+-> Boss(normales, como pets de TLON)
+
+Armas
+-> Espadon
+-> Martillo
+-> Dagas
+-> Shuriken
+-> Lanza
+-> Puños
+-> Libro
+-> Baston
+-> Arco
+
+Equipo
+-> Casco
+-> Pechera
+-> Hombros
+-> Brasaletes
+-> Botas
+-> 2 Anillos
+-> 2 Aretes
+-> Collar
+
+Elementos
+ : resonan con el arma :
+-> Fuego, quemadura, critico
+-> Agua, stun, relentizar
+-> Viento. stun, relentizar
+-> Tierra, aguante, daño
+-> Luz, daño verdadero
+-> Oscuridad, envenenamiento
+
+Criaturas
+ : Invocacion por un perdio corto de tiempo para el apoyo en las luchas (ref. Rakion):
+-> Tauro
+-> Tortuga
+-> Shenlong
+-> Lobo grande
+-> Dragon
+-> Reno
+-> Bestia
+-> Araña
+-> Yeti
+-> Musketer
+
+Estadisticas de personaje
+-> Poder/ CP
+-> Vida, Armadura
+-> Daño
+-> Defensa
+-> Bloqueo
+-> Estamina
+-> Penetracion
+-> Destruccion
+-> Critico
+-> Tenacidad
+
+Puntos
+-> Exp
+-> Oro
+-> Gemas (Cash)
+-> Ruby 
+-> Contribucion (Por ayudar, hacer equipo)
+
+Monturas
+-> Diferente de las criaturas
+
+Tienda
+-> Equipo, Armas (Npc)
+-> Skins (Ventanas)
+
+Aura/Resonancia
+-> Solo color, resplandeciente(Pecho, Armas, Sobre la cabesa en forma de luna echada)
+
+Consumibles
+-> Vida, Armadura
+-> Cell
+
+Skins
+-> Por Equipo (Arma, Casco, Pechera, Hombros, Brasalete, Botas, Creaturas)
+
+Titulos
+
+Gremio
+
+
+
+
+REFERENIA
+https://x.com/i/status/1888177336056422643
+https://x.com/i/status/1944891859655962650
+
+
+ANIMATIONS WITH SKELETON UE
+-> Atack
+https://www.fab.com/sellers/9CG
+
+-> Aditionals
+https://www.fab.com/listings/9f1688cb-c94e-409d-a53c-67258a1334ad
+https://www.fab.com/listings/4ac48151-a1f3-4052-9c9c-648fb4901c1f
+https://www.fab.com/listings/dda0061d-676f-45aa-b130-cb0e6ea29c19
+https://www.fab.com/listings/21c19e85-7aca-4f37-9e9d-3dd286910e2a
+https://www.fab.com/listings/7a670c2c-68dc-4561-bd81-9c4e0fd373e4
+https://www.fab.com/listings/f50c35d7-5e77-4b58-936c-fac61606fb98
+https://www.fab.com/category/animation?is_free=1
+https://www.fab.com/listings/f4332640-cb34-410b-9938-aa58cc38ece2
+https://www.fab.com/listings/2781d61d-6b2a-4876-b845-de9ba14a207c
+https://www.fab.com/listings/f442265b-625f-4fca-bf87-6b8938df9cb2
+https://www.fab.com/listings/db248f2c-52b8-4481-bd7b-8feab4b0be97
+
+DEDICATED SERVE 
+https://dev.epicgames.com/community/learning/tutorials/EL8e/building-dedicated-servers-with-unreal-engine-5
