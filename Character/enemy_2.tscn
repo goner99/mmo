@@ -88,6 +88,7 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
 shape = SubResource("BoxShape3D_mwiq0")
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_as262")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("instance") instance=ExtResource("3_as262")]
+instance = NodePath("..")
 
 [connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

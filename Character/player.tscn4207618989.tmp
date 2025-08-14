@@ -3938,5 +3938,6 @@ playback_default_blend_time = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890221, 0)
 shape = SubResource("CapsuleShape3D_2brrg")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("instance") instance=ExtResource("2_3c51y")]
-instance = NodePath("..")
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("player", "collition_shape") instance=ExtResource("2_3c51y")]
+player = NodePath("..")
+collition_shape = NodePath("../CollisionShape3D")

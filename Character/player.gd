@@ -16,7 +16,8 @@ var is_looked = false
 @onready var pivote: Node3D = $Pivote
 @onready var model: Node3D = $Model
 @onready var animation_player: AnimationPlayer = $Model/mixamo_base/AnimationPlayer
-@onready var health_component: Node = $HealthComponent
+@onready var health_component: Node3D = $HealthComponent
+
 
 
 func _ready() -> void:
@@ -28,12 +29,17 @@ func _input(event: InputEvent) -> void:
 		rotate_y(deg_to_rad(-event.relative.x * sens_horizontal))
 		model.rotate_y(deg_to_rad(event.relative.x * sens_horizontal))
 		pivote.rotate_x(deg_to_rad(-event.relative.y * sens_vertical))
+		pivote.rotation.x = clamp(pivote.rotation.x,-(PI/4), PI/4)
 	
 func _physics_process(delta: float) -> void:
 	
 	#F
-	if Input.is_action_just_pressed("debug_key"):
+	if Input.is_action_just_pressed("debug_key_f"):
 		health_component.take_damage(5)
+		print(health_component.current_health)
+	
+	if Input.is_action_just_pressed("debug_key_g"):
+		health_component.take_healing(20)
 		print(health_component.current_health)
 	
 	if !animation_player.is_playing():
