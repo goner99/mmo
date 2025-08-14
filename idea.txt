@@ -17,7 +17,7 @@ Progresion
 -> Max lv 99
 -> Por zonas
 -> 
-
+s
 Zonas
  : un mapa entero divido en 5 biomas cada uno con su propias estructuras :
 -> Pradera(Reino medieval, ciudad, debotos a gaia)

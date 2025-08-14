@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://lf10hqn624xb"]
+
+[ext_resource type="Script" uid="uid://crqdddpocbcb8" path="res://Character/enemy_2.gd" id="1_8hvsn"]
+[ext_resource type="Texture2D" uid="uid://dcxco25mu7jyr" path="res://Assets/textures/grids/Red/texture_11.png" id="2_k2wrn"]
+[ext_resource type="PackedScene" uid="uid://ddylcokk6egvu" path="res://Components/health_component.tscn" id="3_as262"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as262"]
+albedo_texture = ExtResource("2_k2wrn")
+
+[sub_resource type="Animation" id="Animation_8hvsn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.785398, 0, 0.785398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mwiq0"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.785398, 0, 0.785398), Vector3(0.785398, 3.14159, 0.785398), Vector3(0.785398, 6.28319, 0.785398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.50245, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2wrn"]
+_data = {
+&"RESET": SubResource("Animation_8hvsn"),
+&"idle": SubResource("Animation_mwiq0")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwiq0"]
+
+[node name="enemy2" type="Node3D"]
+script = ExtResource("1_8hvsn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.5, 0.5, -0.707107, 0.5, 0.5, 0.707107, 0, 0, 0)
+material = SubResource("StandardMaterial3D_as262")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGBox3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_k2wrn")
+}
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
+shape = SubResource("BoxShape3D_mwiq0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_as262")]
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

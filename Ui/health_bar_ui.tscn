@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp847uerg8cbe"]
+
+[ext_resource type="Script" uid="uid://bmgkbna5w6e4m" path="res://Ui/health_bar_ui.gd" id="1_l68of"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l68of"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l68of"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l68of"]
+bg_color = Color(0.625834, 0.0664038, 0.169262, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v48o2"]
+bg_color = Color(0.183591, 0.18359, 0.18359, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8nlq"]
+bg_color = Color(0.920995, 0.920995, 0.920994, 1)
+
+[node name="HealthBarUi" type="Sprite3D"]
+billboard = 1
+texture = SubResource("ViewportTexture_l68of")
+script = ExtResource("1_l68of")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(50, 3)
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
+z_index = 1
+offset_right = 50.0
+offset_bottom = 3.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_l68of")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l68of")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="DamageBar" type="ProgressBar" parent="SubViewport/HealthBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_v48o2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g8nlq")
+max_value = 1.0
+value = 0.7
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="SubViewport/HealthBar/DamageBar"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="SubViewport/HealthBar/DamageBar/Timer" to="." method="_on_timer_timeout"]

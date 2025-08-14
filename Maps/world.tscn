@@ -1,6 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds2dtlfhvrne4"]
+[gd_scene load_steps=18 format=3 uid="uid://ds2dtlfhvrne4"]
 
+[ext_resource type="Texture2D" uid="uid://d223qxjvy58hj" path="res://Assets/textures/grids/Dark/texture_09.png" id="1_1h05d"]
 [ext_resource type="PackedScene" uid="uid://dov83lr4p4ubq" path="res://Character/player.tscn" id="1_giufd"]
+[ext_resource type="Script" uid="uid://bs7jkgb30tg2a" path="res://Maps/world.gd" id="1_jlatx"]
+[ext_resource type="Texture2D" uid="uid://dprwn2mbhlchg" path="res://Assets/textures/grids/Green/texture_08.png" id="3_oeksg"]
+[ext_resource type="Texture2D" uid="uid://dhgdwpnq35vpd" path="res://Assets/textures/grids/Orange/texture_08.png" id="4_jlatx"]
+[ext_resource type="Texture2D" uid="uid://b3dok1a2g18m" path="res://Assets/textures/grids/Purple/texture_08.png" id="5_g6xbe"]
+[ext_resource type="PackedScene" uid="uid://cwhajn1k8ra1o" path="res://Character/enemy.tscn" id="7_g6xbe"]
+[ext_resource type="PackedScene" uid="uid://lf10hqn624xb" path="res://Character/enemy_2.tscn" id="8_4h5vl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqw03"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -13,12 +20,31 @@ sky_material = SubResource("ProceduralSkyMaterial_cqw03")
 background_mode = 2
 sky = SubResource("Sky_giufd")
 tonemap_mode = 2
+sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.624935, 0.657231, 0.707977, 1)
+fog_density = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wux6d"]
+albedo_texture = ExtResource("1_1h05d")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_wux6d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qacqj"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h5vl"]
+albedo_texture = ExtResource("3_oeksg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y565o"]
+albedo_texture = ExtResource("4_jlatx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdvnw"]
+albedo_texture = ExtResource("5_g6xbe")
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_jlatx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1h05d")
@@ -28,7 +54,8 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -0.495969, 0)
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, 0, -0.495969, 0)
+material_override = SubResource("StandardMaterial3D_wux6d")
 mesh = SubResource("BoxMesh_wux6d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
@@ -37,4 +64,25 @@ mesh = SubResource("BoxMesh_wux6d")
 shape = SubResource("BoxShape3D_qacqj")
 
 [node name="Player" parent="." instance=ExtResource("1_giufd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77121, 1.00403, 7.57938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.812651, 0.00568706, 7.57938)
+
+[node name="Box1" type="CSGBox3D" parent="."]
+transform = Transform3D(1.86333, 0, -0.726633, 0, 1.372, 0, 0.726633, 0, 1.86333, 8.34918, 0.795307, 0)
+material_override = SubResource("StandardMaterial3D_4h5vl")
+use_collision = true
+
+[node name="Box2" type="CSGBox3D" parent="."]
+transform = Transform3D(3.49111, 0, -1.95247, 0, 2.744, 0, 1.95247, 0, 3.49111, -0.246354, 1.41193, -17.6603)
+material_override = SubResource("StandardMaterial3D_y565o")
+use_collision = true
+
+[node name="Box3" type="CSGBox3D" parent="."]
+transform = Transform3D(7.03254, 0, 1.9165, 0, 5, 0, -1.9165, 0, 7.03254, -12.8717, 2.54033, 0)
+material_override = SubResource("StandardMaterial3D_jdvnw")
+use_collision = true
+
+[node name="Enemy" parent="." instance=ExtResource("7_g6xbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61304, 1.23785, -0.456437)
+
+[node name="enemy2" parent="." instance=ExtResource("8_4h5vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53926, 0.857585, -7.44609)

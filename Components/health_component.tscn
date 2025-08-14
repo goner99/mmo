@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddylcokk6egvu"]
+
+[ext_resource type="PackedScene" uid="uid://dp847uerg8cbe" path="res://Ui/health_bar_ui.tscn" id="1_c2t11"]
+
+[sub_resource type="GDScript" id="GDScript_repyr"]
+script/source = "extends Node
+
+@export var player : CharacterBody3D
+@export var max_health : float = 100.0
+@onready var health_bar_ui: HealthBarUi = $HealthBarUi
+
+var current_health : float = 0.0
+var is_death : bool = false
+
+
+func _ready() -> void:
+	current_health = max_health
+
+func take_damage(amount: float):
+	current_health -= amount
+	
+	if health_bar_ui:
+		health_bar_ui.update_health(current_health,max_health)
+	
+	if current_health <= 0.0:
+		is_death = true
+		player.queue_free()
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kooan"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HealthComponent" type="Node3D"]
+script = SubResource("GDScript_repyr")
+
+[node name="HealthBarUi" parent="." instance=ExtResource("1_c2t11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+texture = SubResource("ViewportTexture_kooan")
